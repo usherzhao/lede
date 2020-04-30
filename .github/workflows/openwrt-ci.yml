@@ -58,7 +58,8 @@ jobs:
           cat >> .config << EOF
           CONFIG_PACKAGE_luci-app-kodexplorer=y
           EOF
-          
+          sed -i 's/^[ \t]*//g' ./.config
+          make defconfig
 
       - name: Make download
         run: |
