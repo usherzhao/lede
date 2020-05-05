@@ -42,6 +42,7 @@ jobs:
       - name: Update feeds
         run: |
           sed -i 's/\"#src-git\"/\"src-git\"/g' ./feeds.conf.default
+          ./scripts/feeds clean
           ./scripts/feeds update -a
           ./scripts/feeds install -a
       - name: Generate configuration file
